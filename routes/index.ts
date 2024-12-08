@@ -43,7 +43,7 @@ router.get('/', function(req, res, next) {
 	];
 	
 	// Render the webpage.
-	res.render('index', { title: 'Express', myLayout });
+	res.render('index', { title: 'Scouting Form', myLayout });
 });
 
 router.post('/', function (req, res, next) {

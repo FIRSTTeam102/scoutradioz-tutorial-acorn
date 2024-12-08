@@ -3,3 +3,18 @@ extends layout
 block content
 	h1= title
 	p Welcome to #{title}
+	p= JSON.stringify(myLayout)
+	each item in myLayout
+		case item.type
+			when "h2"
+				h2=item.label
+			when "h3"
+				h3=item.label
+			when "spacer"
+				hr
+			when "checkbox"
+				div
+					input(type="checkbox")
+					label=item.label
+			default
+				p= JSON.stringify(item)
