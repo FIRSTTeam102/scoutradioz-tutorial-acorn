@@ -14,7 +14,22 @@ block content
 				hr
 			when "checkbox"
 				div
-					input(type="checkbox")
+					input(type="checkbox" id=item.id)
+					label(for=item.id)=item.label
+			when "counter"
+				div
 					label=item.label
+					button(onclick=`minusButton('${item.id}')`) -
+					button(onclick=`plusButton('${item.id}')`) +
+					input(type="number" id=item.id value=0)
 			default
 				p= JSON.stringify(item)
+	script.
+		function minusButton(thisId) {
+			let numberInput = document.getElementById(thisId)
+			numberInput.value = Number(numberInput.value) - 1
+		}
+		function plusButton(thisId) {
+			let numberInput = document.getElementById(thisId)
+			numberInput.value = Number(numberInput.value) + 1
+		}
